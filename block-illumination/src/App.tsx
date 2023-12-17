@@ -1,4 +1,6 @@
+import { useState } from "react";
 import "./App.css";
+import List from "./components/List";
 
 function App() {
   const [list, setList] = useState([
@@ -38,39 +40,3 @@ function App() {
 }
 
 export default App;
-
-function Article(props) {
-  return (
-    <div className="item item-article">
-      <h3>
-        <a href="#">{props.title}</a>
-      </h3>
-      <p className="views">Прочтений: {props.views}</p>
-    </div>
-  );
-}
-
-function Video(props) {
-  return (
-    <div className="item item-video">
-      <iframe
-        src={props.url}
-        allow="autoplay; encrypted-media"
-        allowFullScreen
-      ></iframe>
-      <p className="views">Просмотров: {props.views}</p>
-    </div>
-  );
-}
-
-function List(props) {
-  return props.list.map((item) => {
-    switch (item.type) {
-      case "video":
-        return <Video {...item} />;
-
-      case "article":
-        return <Article {...item} />;
-    }
-  });
-}
