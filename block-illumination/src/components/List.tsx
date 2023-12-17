@@ -1,18 +1,21 @@
-import Article, { ArticleProps } from "./Article";
-import Video, { VideoProps } from "./Video";
+import Article from "./Article";
+import Popularity, { PopularityProps } from "./Popularity";
+import Video from "./Video";
 
 type ListProps = {
-  list: (VideoProps | ArticleProps)[];
+  list: PopularityProps[];
 };
 
 const List = (props: ListProps) => {
-  return props.list.map((item) => {
+  const PopularityVideo = Popularity(Video);
+  const PopularityArticle = Popularity(Article);
+  return props.list.map((item, index) => {
     switch (item.type) {
       case "video":
-        return <Video {...(item as VideoProps)} />;
+        return <PopularityVideo key={index} {...item} />;
 
       case "article":
-        return <Article {...(item as ArticleProps)} />;
+        return <PopularityArticle key={index} {...item} />;
     }
   });
 };

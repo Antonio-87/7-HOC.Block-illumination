@@ -1,10 +1,6 @@
-export type VideoProps = {
-  type: string;
-  url: string;
-  views: number;
-};
+import { PopularityProps } from "./Popularity";
 
-const Video = (props: VideoProps) => {
+const Video = (props: PopularityProps) => {
   return (
     <div className="item item-video">
       <iframe

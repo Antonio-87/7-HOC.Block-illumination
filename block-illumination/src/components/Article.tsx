@@ -1,10 +1,6 @@
-export type ArticleProps = {
-  type: string;
-  title: string;
-  views: number;
-};
+import { PopularityProps } from "./Popularity";
 
-const Article = (props: ArticleProps) => {
+const Article = (props: PopularityProps) => {
   return (
     <div className="item item-article">
       <h3>

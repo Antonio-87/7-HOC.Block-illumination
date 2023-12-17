@@ -1,13 +1,16 @@
 import { ComponentType } from "react";
 import New from "./New";
-import { ArticleProps } from "./Article";
-import { VideoProps } from "./Video";
 import Popular from "./Popular";
 
-const Popularity = (
-  WrappedComponent: ComponentType<ArticleProps | VideoProps>
-) => {
-  return (props: ArticleProps | VideoProps) => {
+export type PopularityProps = {
+  type: string;
+  url?: string;
+  title?: string;
+  views: number;
+};
+
+const Popularity = (WrappedComponent: ComponentType<PopularityProps>) => {
+  return (props: PopularityProps) => {
     if (props.views < 100)
       return (
         <>
